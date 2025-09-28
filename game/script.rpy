@@ -4,9 +4,9 @@
 # name of the character.
 
 define e = Character("Eileen")
-image sacrifice_full = Movie(play="sacrifice.webm", loop=False)
-image dog_dead = Movie(play="dogdead.webm", loop=False)
-image cat_dead = Movie(play="catdead.webm", loop=False)
+image sacrifice_full = Movie(play="sacrifice.webm", loop=False, keep_last_frame=True)
+image dog_dead = Movie(play="dogdead.webm", loop=False, keep_last_frame=True)
+image cat_dead = Movie(play="catdead.webm", loop=False, keep_last_frame=True)
 
 # The game starts here.
 define config.default_text_cps = 30
@@ -62,7 +62,7 @@ screen kill_cat:
 
 image sacrifice_small = Movie(play="sacrifice.webm", size=(800, 600))
 label start:
-
+    play music "soft-piano-100-bpm-121529.mp3"
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
@@ -181,11 +181,14 @@ label puppy_scenario:
     p "We know, but we still can't bear the thought of you not loving us."
     p "So now we will have to kill this dog."
 
+    stop music
+    play music "scary-horror-creepy-music-359998.mp3"
     call screen kill_dog
-    hide screen kill_dog
     scene black
     n "From this point onwards, Bella would never be able to feel the soft soil underneath her paws. The warm sunlight on her fur. All because of the choices that YOU made."
     n "THE END"
+    stop music
+    $ renpy.quit()
     # This ends the game.
 
 
@@ -234,7 +237,7 @@ label kitty_scenario:
     n "Another day goes by..."
 
     scene cat injured3 at sacrifice_fit
-    m "AAAAAHHH! What happened?! Something is truly wrong!"
+    m "AAAAAHHH! What happened?! Something's really wrong!"
 
     scene living room at sacrifice_fit  
 
@@ -253,15 +256,16 @@ label kitty_scenario:
     p "We know, but we still can't bear the thought of you not loving us."
     p "So now we will have to kill this cat."
 
+    stop music
+    play music "scary-horror-creepy-music-359998.mp3"
+
     call screen kill_cat
-    hide screen kill_dog
-    scene black
-    n "From this point onwards, Oliver would never be able to feel the soft soil underneath his paws. The warm sunlight on his fur. All because of the choices that YOU made."
-    n "THE END"
-    # This ends the game.
- 
 
 label you_death:
+
+    stop music
+    play music "scary-horror-creepy-music-359998.mp3"
+
     scene sacrifice_full 
     y "Wait! NO!"
     window hide
@@ -269,17 +273,39 @@ label you_death:
     window show
     hide screen sacrifice_full
     scene black
-    n "She never opened her eyes again..."
+    n "The abusive adoptive parents sliced Lucy's arm off, leaving her to bleed to death on the cold, marble floor."
+    n "The people who were meant to protect her and save her from the trauma...they ended up killing her in the end."
+    n "In her sacrifice, she saved the little animal."
+    n "But she never opened her eyes again..."
     n "THE END"
+    stop music
     $ renpy.quit()
 
 label kitty_death:
-    scene cat_dead
+    scene cat_dead 
     y "NOOOO! WHYYYYY?!?!?!??!"
+    window hide 
+    pause 10.0
+    window show
+    hide screen cat_dead
+    scene black
+    n "From this point onwards, Oliver would never be able to feel the soft soil underneath his paws. The warm sunlight on his fur. All because of the choices that YOU made."
+    n "THE END"
+    stop music
     $ renpy.quit()
+    # This ends the game.
 
 label puppy_death:
     scene dog_dead
     y "NOOOO! WHYYYYY?!?!?!??!"
+    window hide 
+    pause 10.0
+    window show
+    hide screen dog_dead
+    scene black
+    n "From this point onwards, Bella would never be able to feel the soft soil underneath her paws. The warm sunlight on her fur. All because of the choices that YOU made."
+    n "THE END"
+    stop music
     $ renpy.quit()
+    # This ends the game.
 
