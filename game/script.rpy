@@ -162,7 +162,7 @@ label puppy_scenario:
     n "Another day goes by..."
 
     scene dog injured3 at sacrifice_fit
-    m "AAAAAHHH! What happened?! Something is truly wrong!"
+    y "Worries flit through Lucy’s brain. Then the thought comes to her, who can I trust? How do I know that I am not just in a simulation and my parents are trustworthy. Is my new life real? I need to test the waters. No accusations, just investigation"
 
     scene living room at sacrifice_fit  
 
@@ -176,9 +176,9 @@ label puppy_scenario:
 
     m "We're sorry, Lucy. We didn't want you to find out about us like this. But we've been hurting the dog."
     y "What?! Why???"
-    m "Because we couldn't stand the thought of losing you, Lucy..."
+    m "She is a parasite, can’t you see? She leeches your love from us. We saved you. You love us."
     y "Are you crazy?! You literally just adopted me a few days ago!"
-    p "We know, but we still can't bear the thought of you not loving us."
+    p "Now we have to get rid of the pests. We can start our relationship anew honey. Please step aside for us to get rid of this pest, skinwalker, brain rotted little bugger or we will be forced to hurt you too."
     p "So now we will have to kill this dog."
 
     stop music
@@ -237,7 +237,7 @@ label kitty_scenario:
     n "Another day goes by..."
 
     scene cat injured3 at sacrifice_fit
-    m "AAAAAHHH! What happened?! Something's really wrong!"
+    n "Worries flit through Lucy’s brain. Then the thought comes to her, who can I trust? How do I know that I am not just in a simulation and my parents are trustworthy. Is my new life real? I need to test the waters. No accusations, just investigation"
 
     scene living room at sacrifice_fit  
 
@@ -251,9 +251,9 @@ label kitty_scenario:
 
     m "We're sorry, Lucy. We didn't want you to find out about us like this. But we've been hurting the cat."
     y "What?! Why???"
-    m "Because we couldn't stand the thought of losing you, Lucy..."
+    m "She is a parasite, can’t you see? She leeches your love from us. We saved you. You love us."
     y "Are you crazy?! You literally just adopted me a few days ago!"
-    p "We know, but we still can't bear the thought of you not loving us."
+    p "Now we have to get rid of the pests. We can start our relationship anew honey. Please step aside for us to get rid of this pest, skinwalker, brain rotted little bugger or we will be forced to hurt you too."
     p "So now we will have to kill this cat."
 
     stop music
@@ -284,6 +284,7 @@ label you_death:
 label kitty_death:
     scene cat_dead 
     y "NOOOO! WHYYYYY?!?!?!??!"
+    y "Curse you monsters. Death be with you. I’m not just talking to my parents. You chose this. I am telling you this. You broke my perfect world. In the end I am still stuck here in this simulation. I will escape, I will find you."
     window hide 
     pause 10.0
     window show
@@ -298,6 +299,7 @@ label kitty_death:
 label puppy_death:
     scene dog_dead
     y "NOOOO! WHYYYYY?!?!?!??!"
+    y "Curse you monsters. Death be with you. I’m not just talking to my parents. You chose this. I am telling you this. You broke my perfect world. In the end I am still stuck here in this simulation. I will escape, I will find you."
     window hide 
     pause 10.0
     window show
