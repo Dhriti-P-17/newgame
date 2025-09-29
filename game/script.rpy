@@ -7,6 +7,7 @@ define e = Character("Eileen")
 image sacrifice_full = Movie(play="sacrifice.webm", loop=False, keep_last_frame=True)
 image dog_dead = Movie(play="dogdead.webm", loop=False, keep_last_frame=True)
 image cat_dead = Movie(play="catdead.webm", loop=False, keep_last_frame=True)
+image gravestone = Movie(play="gravestone.webm", loop=False, keep_last_frame=True)
 
 # The game starts here.
 define config.default_text_cps = 30
@@ -67,7 +68,8 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-
+    scene title1 at sacrifice_fit
+    n "Click to Continue"
     scene orphanage rm
 
     show parents happy at character_fit
@@ -278,6 +280,10 @@ label you_death:
     n "In her sacrifice, she saved the little animal."
     n "But she never opened her eyes again..."
     n "THE END"
+    n "However..."
+
+    scene gravestone at sacrifice_fit
+    n "Lucy will return to seek revenge. THE END!"
     stop music
     $ renpy.quit()
 
@@ -291,7 +297,6 @@ label kitty_death:
     hide screen cat_dead
     scene black
     n "From this point onwards, Oliver would never be able to feel the soft soil underneath his paws. The warm sunlight on his fur. All because of the choices that YOU made."
-    n "THE END"
     stop music
     $ renpy.quit()
     # This ends the game.
@@ -310,4 +315,6 @@ label puppy_death:
     stop music
     $ renpy.quit()
     # This ends the game.
+
+
 
